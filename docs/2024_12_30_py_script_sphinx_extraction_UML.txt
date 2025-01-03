@@ -1,0 +1,33 @@
+# !-- start UML -->
+title Python Script + Sphinx Extraction Flow
+
+actor Developer
+participant "Python Script" as PS
+participant "Source Files\n(.py/.rst)" as SRC
+participant "Sphinx" as SPX
+participant "Generated Docs\n(HTML/PDF/etc.)" as GENDOCS
+
+Developer -> PS: Run script (extract comments/docstrings)
+PS -> SRC: Read & parse content
+
+PS -> PS: Convert to Sphinx-friendly reStructuredText (RST)
+PS -> SRC: (Optional) Update or create .rst files
+
+PS -> SPX: Provide updated RST sources
+SPX -> SPX: Validate & process docs
+SPX -> SPX: Apply headings & styles
+SPX -> GENDOCS: Generate final documentation
+
+GENDOCS -> Developer: Review output
+# !-- enduml -->
+
+note over test
+  Remember to identify:
+  - Heading styles: H1, H2, H3
+  - Call out styles:
+    - Code
+    - Pull Quote
+    - Warning
+    - Tip
+    - Note
+end note
